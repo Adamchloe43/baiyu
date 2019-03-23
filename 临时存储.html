@@ -1,0 +1,39 @@
+<ul id="nav">
+    <li v-for="item,key in SSX">
+        <a href="javascript:;">
+            <!-- 显示一级数据 -->
+            <i class="iconfont">&#xe828;</i>
+            <cite onclick="change(this)">{{key}}</cite>
+            <i class="iconfont nav_right">&#xe697;</i>
+        </a>
+        <ul class="sub-menu">
+            <li date-refresh="1" v-for="keys,values in item">
+                <!-- 显示二级数据 -->
+                <!-- 判断是否只有一个 -->
+                <div v-if="values==0">
+                    <!-- 渲染单个数据   例如 北京-北京市-。。。。。 -->
+                    <!-- 显示三级数据 -->
+                    <a _href="javascr:;" v-for="qu in keys">
+                        <i class="iconfont">&nbsp;&nbsp;&nbsp;&nbsp;</i>
+                        <cite onclick="change(this)">{{qu}}</cite>
+                    </a>
+                </div>
+                <!-- 渲染多个数据  例如 山西-太原-大同 。。。。。。 -->
+                <a style="display:block;padding:0px;" v-else>
+                    <a _href="javascript:;">
+                        <i class="iconfont">&#xe6a7;</i>
+                        <cite onclick="change(this)">{{values}}</cite>
+                    </a>
+                    <!-- 显示三级数据 -->
+                    <ul class="sub-menu" v-for="xian in keys">
+                        <li>
+                            <a _href="javascript:;" >
+                                <i class="iconfont">&nbsp;&nbsp;&nbsp;&nbsp;</i>
+                                <cite onclick="change(this)">{{xian}}</cite>
+                            </a>
+                        </li>
+                    </ul>
+                </a>
+            </li>
+        </ul>
+    </li>
